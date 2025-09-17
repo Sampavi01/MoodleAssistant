@@ -1,6 +1,7 @@
+
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3001/api'; // Adjust based on your backend
+const API_BASE_URL = import.meta.env.REACT_APP_API_URL || 'http://localhost:3001/api'; // Uses .env value if available
 
 // Configure axios defaults
 axios.defaults.baseURL = API_BASE_URL;
