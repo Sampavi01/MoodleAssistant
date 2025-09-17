@@ -184,13 +184,13 @@ llm = ChatOpenAI(model="gpt-4o-mini", openai_api_key=OPENAI_API_KEY)
 
 # Refined prompts
 extract_prompt = PromptTemplate.from_template(
-    "Extract the main tasks, requirements, and key instructions from this assignment text: {text}. Focus on actionable items and ignore boilerplate."
+    "Extract the main tasks, requirements, and key instructions from this assignment text: {text}. Focus on actionable items and ignore boilerplate.\n\nAvailable tools: {tools}\nTool names: {tool_names}\nAgent scratchpad: {agent_scratchpad}"
 )
 simplify_prompt = PromptTemplate.from_template(
-    "Explain this assignment in simple, clear language for a student, using bullet points: {extracted}"
+    "Explain this assignment in simple, clear language for a student, using bullet points: {extracted}.\n\nAvailable tools: {tools}\nTool names: {tool_names}\nAgent scratchpad: {agent_scratchpad}"
 )
 review_prompt = PromptTemplate.from_template(
-    "Review this explanation for accuracy and clarity. Improve it if needed, keeping it concise and student-friendly: {simplified}"
+    "Review this explanation for accuracy and clarity. Improve it if needed, keeping it concise and student-friendly: {simplified}.\n\nAvailable tools: {tools}\nTool names: {tool_names}\nAgent scratchpad: {agent_scratchpad}"
 )
 
 # Agents
